@@ -1,0 +1,2 @@
+from .detect_gender import detect_gender
+from .grammatical_gender_detector import GrammaticalGenderDetector
