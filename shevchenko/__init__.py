@@ -30,10 +30,21 @@ __all__ = [
     'in_ablative',
     'in_locative',
     'in_vocative',
-    'detect_gender'
+    'detect_gender',
+    'inflect'
 ]
 
 T = TypeVar('T', bound=DeclensionInput)
+
+def inflect(input_data: T, grammatical_case: GrammaticalCase) -> DeclensionOutput:
+    """
+    Inflects an anthroponym in the given grammatical case.
+    
+    :param input_data: The input anthroponym data.
+    :param grammatical_case: The grammatical case to inflect to.
+    :return: The inflected anthroponym.
+    """
+    return in_grammatical_case(grammatical_case, input_data)
 
 def in_grammatical_case(grammatical_case: GrammaticalCase, input_data: T) -> DeclensionOutput:
     """

@@ -1,11 +1,11 @@
-# shevchenko-python
+# shevchenko-py
 
 Python library for declension of Ukrainian anthroponyms. Port of [shevchenko.js](https://github.com/tooleks/shevchenko-js).
 
 ## Installation
 
 ```bash
-pip install shevchenko
+pip install shevchenko-py
 ```
 
 ## Usage
@@ -40,6 +40,33 @@ print(in_locative(input_data))
 
 # Vocative: Тарасе Григоровичу Шевченку
 print(in_vocative(input_data))
+```
+
+## Using Extensions
+
+You can extend the library to support declension of additional fields. For example, to declin military ranks and appointments using the `shevchenko-ext-military` extension:
+
+```python
+from shevchenko import inflect, GrammaticalCase
+from shevchenko.extension import register_extension
+from shevchenko_ext_military import military_extension
+
+# Register the military extension
+register_extension(military_extension)
+
+input_data = {
+    'gender': 'masculine',
+    'givenName': 'Тарас',
+    'familyName': 'Шевченко',
+    'militaryRank': 'Генерал-майор',
+    'militaryAppointment': 'Командир'
+}
+
+# Inflect including the custom fields
+result = inflect(input_data, GrammaticalCase.DATIVE)
+
+print(f"{result['militaryRank']} {result['militaryAppointment']} {result['givenName']} {result['familyName']}")
+# Output: Генерал-майору Командиру Тарасу Шевченку
 ```
 
 ## Features

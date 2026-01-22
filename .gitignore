@@ -1,0 +1,41 @@
+# Byte-code files
+__pycache__/
+*.py[cod]
+*.dist-info/
+*.egg-info/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+*.egg
+.python-version # recommended to ignore for libraries
+
+# Build artifacts
+dist/
+build/
+*.whl
+
+# Documentation artifacts
+docs/_build/
+
+# Testing and coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.nox/
+
+# IDEs and editors
+.idea/      # PyCharm project files
+.vscode/    # VS Code settings (optional, sometimes useful to share)
+*.swp       # Vim temporary files
+
+# OS-specific files
+.DS_Store   # macOS
+Thumbs.db   # Windows
+
+# Secret management (do not commit secrets)
+.env
+.flaskenv
+secrets.toml
